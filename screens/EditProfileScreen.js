@@ -10,7 +10,7 @@ const EditProfileScreen = ({navigation}) => {
             source={require('../assets/avatar.jpg')}
             style={{height: 100, width: 100}} //image size 
             imageStyle={{borderRadius: 15}}>
-            <View style={styles.profileheader}>
+            <View style={styles.profheader}>
               <Ionicons name="md-camera" style={styles.iconpos}  size={35} color="#fff"/>
             </View>
           </ImageBackground>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',     
    },
-   profileheader: {
+   profheader: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',  

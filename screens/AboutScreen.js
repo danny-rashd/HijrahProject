@@ -52,7 +52,7 @@ const AboutScreen = ({navigation}) => {
         </Swiper>
       </View>
 
-      <View style={styles.cardsWrapper}>
+      <View style={styles.cards}>
         <Text
           style={{
             alignSelf: 'center',
@@ -86,7 +86,7 @@ const AboutScreen = ({navigation}) => {
           </View>
         </View>
       </View>
-      <View style={styles.cardsWrapper}>
+      <View style={styles.cards}>
         <Text
           style={{
             alignSelf: 'center',
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 8,
   },
-  cardsWrapper: {
+  cards: {
     marginTop: 10,
     width: '90%',
     alignSelf: 'center',

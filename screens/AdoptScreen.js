@@ -1,72 +1,79 @@
 import React, { Component } from 'react';
-import {StyleSheet,Text, View,TouchableOpacity,Image,Alert,ScrollView,FlatList,Button
-} from 'react-native';
+import {Text, View,TouchableOpacity,Image,Alert,ScrollView,FlatList,Button,StyleSheet} from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 export default class AdoptScreen extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       data: [
-        {id:1, title: "Man Steals RM287 in Electric Toothbrushes ",time:"2020-08-01 12:15 pm",
-         image:"https://parklandtalk.com/wp-content/uploads/2018/12/Police-Lights-Parkland-Talk.jpg", 
-         description:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean  ligula..."},
-        {id:2, title: "IGP says over 50,000 pending commercial crime cases solved so far", time:"2020-08-12 12:00 pm", 
-        image:"https://media.malaymail.com/uploads/articles/2020/2020-01/20200106FL8.jpg", 
-        description:"KUALA LUMPUR, Aug 7 — Police have successfully solved 50,853 out 73,425 commercial crime cases which have been pending since the last 20 years, said Inspector-General of Police Tan Sri Abdul Hamid Bador."} ,
-        {id:3, title: "Sg Buloh protection racket: 4 MBSA enforcement officers remanded", time:"2020-08-05 12:21 pm",
-         image:"https://assets.nst.com.my/images/articles/28fakemacc_field_image_listing_featured.var_1530167010.jpg", 
-         description:"Lorem ipsum dolor sit , consectetuer  elit. Aenean commodo ligula..."}, 
-        {id:4, title: "Crime rate nosedived during MCO; motorcycle theft most rampant", time:"2020-08-12 12:00 pm", 
-        image:"https://media.malaymail.com/uploads/articles/2020/2020-07/mazlan_lazim_08072020.jpg", 
-        description:"KUALA LUMPUR, Aug 12 — A video widely shared on social media today of a shooting in Sentul here involved the arrest of suspected drug dealer who attempted to flee capture, city police said tonight."}, 
-        {id:5, title: "Most crime cases reported by outsiders, not residents",time:"2020-06-12 12:11 pm", 
-        image:"https://media.malaymail.com/uploads/articles/2019/2019-08/20190824SN_2.jpeg", 
-        description:"KUALA LUMPUR, July 18 — About 55 per cent of criminal cases in Brickfields are not reported by local residents but by those who work there or transit through KL Sentral"}
+        {id:1, title: "Nini",
+         image:"https://res.cloudinary.com/rppcloud/image/fetch/s--a4sz4Rjp--/c_fill,e_improve:indoor:80,g_auto,h_900,w_600/https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/47736175/2/%3Fbust%3D1585713099", 
+         description:"Cat, Female, 11 months, calico"},
+         {id:2, title: "Little Cato",
+         image:"https://images.creativemarket.com/0.1.0/ps/4520255/300/200/m2/fpc/wm0/yxz5b1hkpktdck3qwfgan30jrfzocorljbjhsjgkicbdgys7izeplhkyujintnp1-.jpg?1527535320&s=50840af159fbd74b39dd666c964b5bd3", 
+         description:"Cat, Male, 6 months, brown tabby"},
+         {id:3, title: "Mochi",
+         image:"https://www.thesprucepets.com/thmb/FcAjaccYiSK3IDrq-tzjh3zlnSg=/1080x1080/filters:no_upscale():max_bytes(150000):strip_icc()/37587975_889760374551318_78404718182793216_n-5b69b5cb46e0fb00505791e1.jpg", 
+         description:"Cat, Male, 4 years, siamese"},
+         {id:4, title: "Kali",
+         image:"https://i.redd.it/mmnso9t263p21.jpg", 
+         description:"Cat, Female, 5 years, sphynx"},
+         {id:5, title: "Gunther",
+         image:"https://www.urbanpawsuk.com/wp-content/uploads/2018/05/Black-and-White-Netherland-Dwarf-Rabbit-Pet-Model-For-Hire.jpg", 
+         description:"Rabbit, Male, 2 years,dwarf"},
+         
       ]
     };
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        <FlatList style={styles.list}
+      <View style={Styles.container}>
+        <FlatList style={Styles.list}
           data={this.state.data}
           keyExtractor= {(item) => {
             return item.id;
           }}
+          
           ItemSeparatorComponent={() => {
             return (
-              <View style={styles.separator}/>
+              <View style={Styles.separator}/>
             )
           }}
+
           renderItem={(post) => {
             const item = post.item;
             return (
-              <View style={styles.card}>
-                <Image style={styles.cardImage} source={{uri:item.image}}/>
-                <View style={styles.cardHeader}>
+              <View style={Styles.card}>
+                <Image style={Styles.cardImage} source={{uri:item.image}}/>
+                
+                <View style={Styles.cardHeader}>
                   <View>
-                    <Text style={styles.title}>{item.title}</Text>
-                    <Text style={styles.description}>{item.description}</Text>
-                    <View style={styles.timeContainer}>
+                    <Text style={Styles.title}>{item.title}</Text>
+                    <Text style={Styles.description}>{item.description}</Text>
+                    
+                    <View style={Styles.timeContainer}>
                       <MaterialCommunityIcons name="calendar" size={24} color="red" />
-                      <Text style={styles.time}>{item.time}</Text>
+                      <Text style={Styles.time}>{item.time}</Text>
                     </View>
                   </View>
                 </View>
-                <View style={styles.cardFooter}>
-                  <View style={styles.socialBarContainer}>
-                    <View style={styles.socialBarSection}>
-                      <TouchableOpacity style={styles.socialBarButton}>
+
+                <View style={Styles.cardFooter}>
+                  <View style={Styles.socialBarContainer}>
+                    <View style={Styles.socialBarSection}>
+                      <TouchableOpacity style={Styles.socialBarButton}>
                         <MaterialCommunityIcons name="eye" size={24} color="#39FF14" />
-                        <Text style={styles.socialBarLabel}>50</Text>
+                        <Text style={Styles.socialBarLabel}>50</Text>
                       </TouchableOpacity>
                     </View>
-                    <View style={styles.socialBarSection}>
-                      <TouchableOpacity style={styles.socialBarButton}>
+                    
+                    <View style={Styles.socialBarSection}>
+                      <TouchableOpacity style={Styles.socialBarButton}>
                       <MaterialCommunityIcons name="comment" size={24} color="#39FF14" />
-                        <Text style={styles.socialBarLabel}>4</Text>
+                        <Text style={Styles.socialBarLabel}>4</Text>
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -78,22 +85,24 @@ export default class AdoptScreen extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
+ const Styles = StyleSheet.create({
   container:{
     flex:1,
     marginTop:20,
   },
+
   list: {
     paddingHorizontal: 17,
     backgroundColor:"#E6E6E6",
   },
+
   separator: {
     marginTop: 10,
   },
+
   /******** card **************/
   card:{
-    shadowColor: '#00000021',
+    shadowColor: '#000021',
     shadowOffset: {
       width: 2
     },
@@ -126,7 +135,7 @@ const styles = StyleSheet.create({
   },
   cardImage:{
     flex: 1,
-    height: 100,
+    height: 250,
     width: null,
   },
   /******** card components **************/
@@ -136,7 +145,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   }, 
   description:{
-    fontSize:15,
+    fontSize:12,
     color:"#888",
     flex:1,
     marginTop:5,

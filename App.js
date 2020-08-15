@@ -10,11 +10,14 @@ import SplashScreen from './screens/SplashScreen';
 import SignInScreen from './screens/SignInScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import AboutScreen from './screens/AboutScreen';  
+import HomeScreen from './screens/HomeScreen';  
+import * as firebase from 'firebase';
+import {firebaseConfig} from './config.js';
 
 import NotificationsScreen from './screens/NotificationsScreen'; 
 
 import { AuthContext } from './screens/context';
-
+firebase.initializeApp(firebaseConfig);
 const RootStack = createStackNavigator();
 const AboutStack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -44,27 +47,37 @@ export default ()=>{
       setIsLoading(false);
     },3000);
   },[]);
-
   if(isLoading){
     return <SplashScreen/>;
   }
   return (
-    <AuthContext.Provider value={authContext}>
     <NavigationContainer>
-      { userToken? (
-        <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-          <Drawer.Screen name="MainTabScreen" component={MainTabScreen} />               
-          <Drawer.Screen name="About" component={AboutScreen} />
-          <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-        </Drawer.Navigator>
-      ) //IF USER HAS TOKEN (= LOGIN=SIGNED UP) => THEN CAN ENTER THE MAIN PAGE
-    :
-    <RootStack.Navigator>
+    {/* <RootStack.Navigator>
       <RootStack.Screen name='Sign In' component={SignInScreen}/>
       <RootStack.Screen name='Sign Up' component={SignUpScreen}/>
-    </RootStack.Navigator> //IF USER DOEST HAVE TOKEN => THEN USER TO SIGN/LOGIN PAGE
-    }
+    </RootStack.Navigator>
+
+    {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+      <Drawer.Screen name="MainTabScreen" component={MainTabScreen} />               
+      <Drawer.Screen name="About" component={AboutScreen} />
+      <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+    </Drawer.Navigator>} */}
+      {/* ) //IF USER HAS TOKEN (= LOGIN=SIGNED UP) => THEN CAN ENTER THE MAIN PAGE
+    : */}
+    {/* } */}
+    <RootStack.Navigator screenOptions={{
+          headerStyle: {
+          backgroundColor: '#38B6FF',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+          fontWeight: 'bold'
+          }
+      }}>
+      <RootStack.Screen name='Sign In' component={SignInScreen} options={{title:'Sign In'}} />
+      <RootStack.Screen name='Sign Up' component={SignUpScreen} options={{title:'Sign Up'}} />
+      <RootStack.Screen name="MainTabScreen" component={MainTabScreen} options={{title:'Muezza Pet Shop'}}   />
+    </RootStack.Navigator> 
     </NavigationContainer>
-    </AuthContext.Provider>
   );
-}
+  }

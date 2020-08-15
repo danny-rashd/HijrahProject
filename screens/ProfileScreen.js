@@ -8,7 +8,7 @@ import {
   TouchableRipple,
 } from 'react-native-paper';
 
-import {MaterialCommunityIcons, Ionicons} from 'react-native-vector-icons';
+import {MaterialCommunityIcons, Ionicons,MaterialIcons} from 'react-native-vector-icons';
 const ProfileScreen = (navigation) => {
 
   return (
@@ -30,10 +30,6 @@ const ProfileScreen = (navigation) => {
         <View style={styles.row}>
           <MaterialCommunityIcons name="home-map-marker" color="#777777" size={20}/>
           <Text style={{color:"#777777", marginLeft: 20}}>Kuala Lumpur, Malaysia</Text>
-        </View>
-        <View style={styles.row}>
-          <MaterialCommunityIcons name="google-maps" color="#777777" size={20}/>
-          <Text style={{color:"#777777", marginLeft: 20}}>Mahallah Ali</Text>
         </View>
         <TouchableRipple onPress={() => {}}>
         <View style={styles.row}>
@@ -66,6 +62,12 @@ const ProfileScreen = (navigation) => {
           <View style={styles.menuItem}>
             <MaterialCommunityIcons name="settings" color="#FF6347" size={25}/>
             <Text style={styles.menuItemText}>Settings</Text>
+          </View>
+        </TouchableRipple>
+        <TouchableRipple onPress={() => alert("My Pets")}>
+          <View style={styles.menuItem}>
+            <MaterialIcons name="pets" color="#FF6347" size={25}/>
+            <Text style={styles.menuItemText}>My Pets</Text>
           </View>
         </TouchableRipple>
       </View>
