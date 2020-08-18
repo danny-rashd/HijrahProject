@@ -62,18 +62,18 @@ export default class AdoptScreen extends Component {
                 </View>
 
                 <View style={Styles.cardFooter}>
-                  <View style={Styles.socialBarContainer}>
-                    <View style={Styles.socialBarSection}>
-                      <TouchableOpacity style={Styles.socialBarButton}>
+                  <View style={Styles.BarContainer}>
+                    <View style={Styles.BarSection}>
+                      <TouchableOpacity style={Styles.BarButton}>
                         <MaterialCommunityIcons name="eye" size={24} color="#39FF14" />
-                        <Text style={Styles.socialBarLabel}>50</Text>
+                        <Text style={Styles.BarLabel}>50</Text>
                       </TouchableOpacity>
                     </View>
                     
-                    <View style={Styles.socialBarSection}>
-                      <TouchableOpacity style={Styles.socialBarButton}>
+                    <View style={Styles.BarSection}>
+                      <TouchableOpacity style={Styles.BarButton}>
                       <MaterialCommunityIcons name="comment" size={24} color="#39FF14" />
-                        <Text style={Styles.socialBarLabel}>4</Text>
+                        <Text style={Styles.BarLabel}>4</Text>
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -138,7 +138,6 @@ export default class AdoptScreen extends Component {
     height: 250,
     width: null,
   },
-  /******** card components **************/
   title:{
     fontSize:18,
     flex:1,
@@ -170,24 +169,23 @@ export default class AdoptScreen extends Component {
   timeContainer:{
     flexDirection:'row'
   },
-  /******** social bar ******************/
-  socialBarContainer: {
+   BarContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
     flex: 1
   },
-  socialBarSection: {
+  BarSection: {
     justifyContent: 'center',
     flexDirection: 'row',
     flex: 1,
   },
-  socialBarlabel: {
+  Barlabel: {
     marginLeft: 8,
     alignSelf: 'flex-end',
     justifyContent: 'center',
   },
-  socialBarButton:{
+  BarButton:{
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
